@@ -1,12 +1,43 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
+import * as serviceWorker from "./serviceWorker";
+import { bindActionCreators } from "redux";
+import store from "./store";
+import { updateCurrent } from "./reducers/todo";
 
-ReactDOM.render(<App />, document.getElementById('root'));
+// const state = {
+//   todos: [
+//     { id: 1, name: "Render static UI", isComplete: true },
+//     { id: 2, name: "Create initial state", isComplete: true },
+//     { id: 3, name: "Render based on state UI", isComplete: false }
+//   ]
+// };
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
+// const todoChangeHandler = val => store.dispatch(updateCurrent(val));
+
+const actions = bindActionCreators(
+  {
+    updateCurrent
+  },
+  store.dispatch
+);
+const render = () => {
+  const state = store.getState();
+
+  ReactDOM.render(
+    <App
+      todos={state.todos}
+      currentTodo={state.currentTodo}
+      changeCurrent={actions.updateCurrent}
+    />,
+    document.getElementById("root")
+  );
+};
+
+render();
+
+store.subscribe(render);
+
 serviceWorker.unregister();
