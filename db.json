@@ -1,0 +1,29 @@
+{
+  "todos": [
+    {
+      "id": 1,
+      "name": "Render static UI",
+      "isComplete": true
+    },
+    {
+      "id": 2,
+      "name": "Create initial state",
+      "isComplete": true
+    },
+    {
+      "id": 3,
+      "name": "Render based on state UI",
+      "isComplete": false
+    },
+    {
+      "name": "gfgfdg",
+      "isComplete": false,
+      "id": 4
+    },
+    {
+      "name": "Lasasass",
+      "isComplete": false,
+      "id": 5
+    }
+  ]
+}

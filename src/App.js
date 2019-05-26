@@ -1,14 +1,15 @@
-import React from "react";
+import React, { Component } from "react";
+
 import "./App.css";
 import TodoForm from "./components/TodoForm";
 import TodoList from "./components/TodoList";
 
-function App({ todos, currentTodo, changeCurrent }) {
+function App() {
   return (
     <div className="App">
       <div className="todo-app">
-        <TodoForm currentTodo={currentTodo} changeCurrent={changeCurrent} />
-        <TodoList todos={todos} />
+        <TodoForm />
+        <TodoList />
       </div>
     </div>
   );
